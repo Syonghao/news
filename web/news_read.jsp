@@ -100,7 +100,6 @@
                         </td>
                     </tr>
                    </c:forEach>
-
                 </table>
             </ul>
             <ul class="classlist">
