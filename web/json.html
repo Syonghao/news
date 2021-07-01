@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        table,tr,td{border: 1px solid black}
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+           <td>ID</td>
+           <td>姓名</td>
+           <td>住址</td>
+           <td>手机</td>
+        </tr>
+    </table>
+    <select name="select">
+
+    </select>
+   <script type="text/javascript">
+       var arr = [
+           {"userid":"1","username":"张三","address":"北京","mobile":"13256898546"},
+           {"userid":"2","username":"李四","address":"河南","mobile":"13256898546"},
+           {"userid":"3","username":"王五","address":"上海","mobile":"13256898546"},
+           {"userid":"4","username":"赵六","address":"广州","mobile":"13256898546"},
+       ]
+       for (let i = 0; i < arr.length; i++) {
+           var $tr = $("<tr><td>"+arr[i].userid+"</td><td>"+arr[i].username+"</td><td>"+arr[i].address+"</td><td>"+arr[i].mobile+"</td></tr>");
+           $("table").append($tr);
+       }
+       for (let i = 0; i <arr.length; i++) {
+           var $option = $("<option>"+arr[i].userid+"&nbsp;&nbsp;&nbsp;&nbsp;"+arr[i].username+"&nbsp;&nbsp;&nbsp;&nbsp;"+arr[i].address+"&nbsp;&nbsp;&nbsp;&nbsp;"+arr[i].mobile+"</option>");
+           $("select").append($option);
+       }
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+    注册邮箱：<input type="text" id="email" name="email" /><span></span><br>
+    用户名：<input type="text" id="username" name="username" /><br>
+    密码：<input type="password" id="pwd" name="pwd"/>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#email").keyup(function () {
+                $.ajax({
+                    url:"hello.do",
+                    type:"get",
+                    data:"email="+$(this).val(),
+                    dataType:"text",
+                    success:function (result) {
+                       if(result == 1){
+                           $("span").html("邮箱已存在").css("color","red");
+                       }else {
+                           $("span").html("邮箱可以使用").css("color","green");
+                       }
+                    }
+                })
+            })
+        })
+
+
+     //    var xhr = new XMLHttpRequest();
+     // var email = document.getElementById("email")
+     //  var user = document.getElementById("username")
+     //    function checkEmail() {
+     //        // xhr.open("get","hello.do?email="+email.value,true)
+     //        // xhr.send(null);
+     //        xhr.open("post","hello.do",true);
+     //        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+     //        xhr.send("email="+email.value)
+     //        xhr.onreadystatechange=callback;
+     //    }
+     //    function callback() {
+     //        //当成功响应式获取
+     //        if (xhr.readyState == 4 && xhr.status == 200) {
+     //            var result1 = xhr.responseText;
+     //            if (result1 == 1) {
+     //                email.nextElementSibling.innerHTML = "<span style='color: red'>邮箱已存在</span>"
+     //            } else {
+     //                email.nextElementSibling.innerHTML ="<span style='color: red'>邮箱可以使用</span>"
+     //            }
+     //        }
+     //    }
+     //    function checkUser() {
+     //        xhr.open("get","hello.do?username="+user.value,true)
+     //        xhr.send(null);
+     //        xhr.onreadystatechange=callback;
+     // }
+     // function callback() {
+     //     //当成功响应式获取
+     //     if(xhr.readyState == 4 && xhr.status == 200){
+     //         var result = xhr.responseText;
+     //         if(result == 1){
+     //             user.nextElementSibling.innerHTML="<span style='color: red'>用户名已存在</span>"
+     //         }else{
+     //             user.nextElementSibling.innerHTML="<span style='color: red'>用户名可以使用</span>"
+     //         }
+     //     }
+     // }
+    </script>
+</body>
+</html>
